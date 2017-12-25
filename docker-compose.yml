@@ -1,0 +1,6 @@
+version: '3'
+
+services:  
+  meteor:
+    build: '.'
+    image: lunafi/slim-meteord:latest

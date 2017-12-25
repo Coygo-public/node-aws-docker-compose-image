@@ -1,0 +1,28 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/app
+    docker:
+      - image: lunafi/slim-meteord
+    environment:
+      - NODE_VER: "893"
+      - AWS_CLI_VER: "11416"
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: build image
+          command: docker-compose build
+      - run:
+          name: Push the docker image
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+               docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+               docker tag lunafi/slim-meteord:latest lunafi/slim-meteord:node.$NODE_VER.aws.$AWS_CLI_VER
+
+               docker push lunafi/slim-meteord:node.$NODE_VER.aws.$AWS_CLI_VER
+               docker push lunafi/slim-meteord:latest
+            else
+              echo "not pushing an image since we are on a branch"
+            fi
