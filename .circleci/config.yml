@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: lunafi/slim-meteord
     environment:
-      - NODE_VER: "893"
+      - NODE_VER: "894"
       - AWS_CLI_VER: "11416"
     steps:
       - checkout
