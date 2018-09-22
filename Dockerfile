@@ -1,7 +1,7 @@
 # Node version needs to match meteor node -v
-FROM mhart/alpine-node:8.9.4
+FROM mhart/alpine-node:8.11.4
 
-ARG AWS_CLI_VERSION_DOWNLOAD=1.14.16
+ARG AWS_CLI_VERSION_DOWNLOAD=1.16.19
 
 
 #DOCKER is used for CI builds.

@@ -1,6 +1,6 @@
 version: '3'
 
-services:  
+services:
   meteor:
     build: '.'
-    image: lunafi/slim-meteord:latest
+    image: coygo/node-aws-docker-compose:latest

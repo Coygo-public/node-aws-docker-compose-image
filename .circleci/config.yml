@@ -3,10 +3,10 @@ jobs:
   build:
     working_directory: ~/app
     docker:
-      - image: lunafi/slim-meteord
+      - image: coygo/node-aws-docker-compose
     environment:
-      - NODE_VER: "894"
-      - AWS_CLI_VER: "11416"
+      - NODE_VER: "8114"
+      - AWS_CLI_VER: "11619"
     steps:
       - checkout
       - setup_remote_docker
@@ -19,10 +19,10 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
                docker login -u $DOCKER_USER -p $DOCKER_PASS
 
-               docker tag lunafi/slim-meteord:latest lunafi/slim-meteord:node.$NODE_VER.aws.$AWS_CLI_VER
+               docker tag coygo/node-aws-docker-compose:latest coygo/node-aws-docker-compose:node.$NODE_VER.aws.$AWS_CLI_VER
 
-               docker push lunafi/slim-meteord:node.$NODE_VER.aws.$AWS_CLI_VER
-               docker push lunafi/slim-meteord:latest
+               docker push coygo/node-aws-docker-compose:node.$NODE_VER.aws.$AWS_CLI_VER
+               docker push coygo/node-aws-docker-compose:latest
             else
               echo "not pushing an image since we are on a branch"
             fi
