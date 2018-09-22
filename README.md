@@ -1,4 +1,4 @@
-# Slim Meteord
+# Node AWS Docker Compose Image for running meteor apps
 [![CircleCI](https://circleci.com/gh/Coygo-public/node-aws-docker-compose-image.svg?style=svg)](https://circleci.com/gh/Coygo-public/node-aws-docker-compose-image)
 
 This image was built (~300MB) for running a slim version of Meteor and locking in a specific node version for custom deployment to AWS. 
