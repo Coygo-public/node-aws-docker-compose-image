@@ -9,7 +9,7 @@ ARG AWS_CLI_VERSION_DOWNLOAD=1.16.19
 
 # Install the AWS CLI and Docker Compose
 RUN apk --no-cache update && \
-    apk --no-cache -Uuv add bash python py-pip ca-certificates \
+    apk --no-cache -Uuv add bash python jq py-pip ca-certificates \
     docker \
     curl libstdc++ g++ make && \
     pip --no-cache-dir install awscli==${AWS_CLI_VERSION_DOWNLOAD} \
